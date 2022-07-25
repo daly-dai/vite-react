@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import vitePluginImp from "vite-plugin-imp";
 import { alias } from "./app-config";
+import eslint from "vite-plugin-eslint";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -24,6 +25,9 @@ export default defineConfig({
           },
         },
       ],
+    }),
+    eslint({
+      include: ["src/**/*.js", "src/**/*.jsx", "src/*.ts", "src/*.tsx"],
     }),
   ],
   publicDir: "assets",
