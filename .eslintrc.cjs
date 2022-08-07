@@ -4,10 +4,16 @@ module.exports = {
     es2021: true,
     node: true
   },
+  settings: {
+    react: {
+      version: '999.999.999'
+    }
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react/jsx-runtime',
     'prettier'
   ],
   parser: '@typescript-eslint/parser',
@@ -27,7 +33,8 @@ module.exports = {
     // 允许使用any类型
     '@typescript-eslint/no-explicit-any': 'off',
     'no-unused-vars': 0, //变量声明未被使用校验
-    'linebreak-style': [0, 'error', 'windows']
+    'linebreak-style': [0, 'error', 'windows'],
+    'react/jsx-uses-react': 2
     // semi: ['always']
   }
 }

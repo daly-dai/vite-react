@@ -7,3 +7,4 @@ prettierrc
 .DS_Store
 .eslintrc.json
 tsconfig.json
+tsconfig.node.json

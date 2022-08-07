@@ -4,12 +4,29 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      // 根据别名配置相关路径
+      "@": ["src"],
+      "@/*": ["src/*"],
+      "@packages/*": ["src/packages/*"],
+      "@pages/*": ["src/pages/*"],
+      "@common/*": ["src/common/*"],
+      "@hook/*": ["src/hook/*"],
+      "@store/*": ["src/store/*"],
+      "@utils/*": ["src/utils/*"],
+      "@config/*": ["src/config/*"],
+      "@router/*": ["src/router/*"],
+      "@service/*": ["src/service/*"],
+      "@types/*": ["src/types/*"],
+      "@components/*": ["src/packages/components/*"]
+    }
   },
   "include": [
     "vite.config.ts",
     "src/**/*.ts",
-    "app-config.ts",
+    "app.config.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx"
   ]

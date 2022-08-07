@@ -9,3 +9,4 @@ config-overrides.js
 .eslintrc.js
 app-config.ts
 tsconfig.json
+tsconfig.node.json
