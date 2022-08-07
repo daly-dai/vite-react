@@ -19,7 +19,7 @@
       "@config/*": ["src/config/*"],
       "@router/*": ["src/router/*"],
       "@service/*": ["src/service/*"],
-      "@types/*": ["src/*"],
+      "@types/*": ["src/types/*"],
       "@components/*": ["src/packages/components/*"]
     }
   },

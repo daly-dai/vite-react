@@ -1,11 +1,17 @@
+import { resolve } from "path";
+
 const alias = {
-  '@': '/src',
-  '@components': 'src/packages/components',
-  '@packages': 'src/packages',
-  '@pages': 'src/pages',
-  '@config': 'src/config',
-  '@utils': 'src/utils',
-  '@router': 'src/router'
+  "@": resolve(__dirname, "src"),
+  '@store': resolve('src/store'),
+  '@router': resolve('src/router'),
+  '@pages': resolve('src/pages'),
+  '@types': resolve('src/types'),
+  '@components': resolve('src/packages/components'),
+  "@utils": resolve('src/utils'),
+  '@assets': resolve('src/assets'),
+  '@config': resolve('src/config'),
+  '@service': resolve('src/service'),
+  '@packages': resolve('src/packages')
 }
 
 const headers = []

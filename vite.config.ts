@@ -3,13 +3,7 @@ import react from '@vitejs/plugin-react'
 import vitePluginImp from 'vite-plugin-imp'
 import { alias } from './app.config'
 import eslint from 'vite-plugin-eslint'
-import { setAlias } from './src/utils/config-utils'
 import { resolve } from "path";
-// import path from 'path'
-// const configAlias = setAlias(alias)
-// const path = require('path');
-
-// const resolve = (dir) => path.resolve(__dirname, dir);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -53,18 +47,7 @@ export default defineConfig({
   },
   base: "./", // 设置打包路径
   resolve: {
-    alias: {
-      "@": resolve(__dirname, "src"),
-      '@store': resolve('src/store'),
-      '@router': resolve('src/router'),
-      '@pages': resolve('src/pages'),
-      '@components': resolve('src/packages/components'),
-      "@utils": resolve('src/utils'),
-      '@assets': resolve('src/assets'),
-      '@config': resolve('src/config'),
-      '@service': resolve('src/service'),
-      '@packages': resolve('src/packages')
-    },
+    alias,
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']
   }
 })

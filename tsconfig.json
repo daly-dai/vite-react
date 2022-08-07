@@ -48,7 +48,7 @@
           "src/service/*"
         ],
         "@types/*": [
-          "src/*"
+          "src/types/*"
         ],
         "@components/*": [
           "src/packages/components/*"

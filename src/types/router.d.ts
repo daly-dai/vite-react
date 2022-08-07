@@ -10,4 +10,5 @@ export interface RouteObject {
   index?: boolean; // 在子路由中，默认为父级路由的首页
   path?: string; // URL 路径
   name?: string; // 当前路由的唯一标识，用于路由拼接
+  parentId?: string | number; // 序列化路由时用
 }
