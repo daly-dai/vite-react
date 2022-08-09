@@ -1,6 +1,5 @@
-// import useAuth from '@hook/';
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const Dashboard = () => {
   // const { token } = useAuth();
@@ -12,7 +11,7 @@ const Dashboard = () => {
       {/* <div>Authenticated as {token}</div> */}
       <Outlet />
     </>
-  );
-};
+  )
+}
 
-export default Dashboard;
+export default Dashboard

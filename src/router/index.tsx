@@ -1,5 +1,5 @@
-import staticRoutes from '@/hook/useGenerateRoutes'
-import RouterGuard from '@/hook/useRouterGuard'
+import staticRoutes from '@hooks/useGenerateRoutes'
+import RouterGuard from '@hooks/useRouterGuard'
 import onRouteBefore from './guard'
 
 const RouterTree = () => {

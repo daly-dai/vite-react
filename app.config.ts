@@ -4,6 +4,7 @@ const alias = {
   "@": resolve(__dirname, "src"),
   '@store': resolve('src/store'),
   '@router': resolve('src/router'),
+  '@hooks': resolve('src/hooks'),
   '@pages': resolve('src/pages'),
   '@types': resolve('src/types'),
   '@components': resolve('src/packages/components'),

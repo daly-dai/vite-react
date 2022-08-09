@@ -29,8 +29,8 @@
         "@common/*": [
           "src/common/*"
         ],
-        "@hook/*": [
-          "src/hook/*"
+        "@hooks/*": [
+          "src/hooks/*"
         ],
         "@store/*": [
           "src/store/*"
