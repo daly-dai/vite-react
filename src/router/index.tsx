@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-// 占位符
-import { useRoutes } from 'react-router-dom'
-import staticRoutes from '@config/routes'
+import staticRoutes from '@/hook/useGenerateRoutes'
+import RouterGuard from '@/hook/useRouterGuard'
+import onRouteBefore from './guard'
 
 const RouterTree = () => {
-  const RouterElement = useRoutes(staticRoutes)
-  return RouterElement
+  return RouterGuard({ onRouterBefore: onRouteBefore, routers: staticRoutes })
 }
 
 export default RouterTree

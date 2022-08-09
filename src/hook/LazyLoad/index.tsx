@@ -1,21 +1,18 @@
-import React, { Suspense } from 'react'
-import { Spin } from 'antd'
-// 懒加载
-function lazyLoad(Comp: React.LazyExoticComponent<any>): React.ReactNode {
+import React, { ComponentType, lazy, Suspense } from 'react'
+
+/**
+ * 为动态 import 包裹 lazy 和 Suspense
+ */
+function lazyLoad(importer: () => Promise<{ default: ComponentType }>) {
+  if (!importer) {
+    return undefined
+  }
+  // 使用 React.lazy 包裹 () => import() 语法
+  const Component = lazy(importer)
+  // 结合 Suspense，这里可以自定义 loading 组件
   return (
-    <Suspense
-      fallback={
-        <Spin
-          size="large"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
-        />
-      }
-    >
-      <Comp />
+    <Suspense fallback={null}>
+      <Component />
     </Suspense>
   )
 }

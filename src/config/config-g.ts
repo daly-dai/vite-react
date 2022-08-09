@@ -1,3 +1,6 @@
 const LOCAL_KEY = "cacheData";
 
-export { LOCAL_KEY }
+// 路由白名单
+const ROUTER_WHITE = ['login']
+
+export { LOCAL_KEY, ROUTER_WHITE }
