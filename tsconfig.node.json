@@ -20,7 +20,8 @@
       "@router/*": ["src/router/*"],
       "@service/*": ["src/service/*"],
       "@types/*": ["src/types/*"],
-      "@components/*": ["src/packages/components/*"]
+      "@components/*": ["src/packages/components/*"],
+      "@plugins/*": ["src/plugins/*"]
     }
   },
   "include": [

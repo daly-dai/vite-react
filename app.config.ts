@@ -12,7 +12,8 @@ const alias = {
   '@assets': resolve('src/assets'),
   '@config': resolve('src/config'),
   '@service': resolve('src/service'),
-  '@packages': resolve('src/packages')
+  '@packages': resolve('src/packages'),
+  '@plugins': resolve('src/plugins')
 }
 
 const headers = []
