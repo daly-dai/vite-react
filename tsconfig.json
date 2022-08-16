@@ -52,6 +52,9 @@
         ],
         "@components/*": [
           "src/packages/components/*"
+        ],
+        "@plugins/*": [
+          "src/plugins/*"
         ]
     },
   },
