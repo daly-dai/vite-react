@@ -29,18 +29,17 @@ const placeStore = generateStore({
     placeData: {}
   },
   actions: {
-    changeHealthCode: (data, state) => {
-      state.healthCode = data
+    changeUiStyle: (data, state) => {
+      state.uiStyle = data
     }
-  }
-  // persist: {
-  //   strategies: [
-  //     {
-  //       storage: sessionStorage,
-  //       paths: ["healthCode", "nucleicAcid", "keyArea", "refreshToken"],
-  //     },
-  //   ],
-  // },
+  },
+  persist: [
+    {
+      key: 'placeCode',
+      storage: sessionStorage,
+      paths: ["healthCode", "communityCode", "uiStyle"],
+    },
+  ],
 })
 
 

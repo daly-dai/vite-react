@@ -1,33 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import placeStore from '@/store/placeStore'
+import { proxy, subscribe } from 'valtio'
 // import { useSnapshot } from 'valtio'
 
-import { proxy, useSnapshot } from 'valtio'
-
-type Status = 'pending' | 'completed'
-type Filter = Status | 'all'
-type Todo = {
-  description: string
-  status: Status
-  id: number
-}
-
-export const store = proxy<{ filter: Filter; todos: Todo[] }>({
-  filter: 'all',
-  todos: []
-})
-
 const Main = () => {
-  // // const store = useSnapshot(placeStore)
-  // console.log(placeStore, store, 888)
-  // const snap = useSnapshot(store)
   const store = placeStore()
+
+  const state = proxy({ obj: { foo: 'bar' }, arr: ['hello'] })
+
+  subscribe(state.obj, () => console.log('state.obj has changed to', state.obj))
+
+  useEffect(() => {
+    setTimeout(() => {
+      state.obj.foo = 'baz'
+      store.changeUiStyle('test')
+    }, 5000)
+  }, [])
 
   return (
     <>
       首页
-      {store.filter}
-      {store.healthCode.colorCode}
+      {store.uiStyle}
     </>
   )
 }
