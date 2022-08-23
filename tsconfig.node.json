@@ -30,6 +30,5 @@
     "app.config.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "config/proxy-self.ts"
   ]
 }
