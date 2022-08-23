@@ -1,21 +1,23 @@
-import { PersistStore, _ActionsTree } from '@/types/storage'
-import { assign, isObject } from 'lodash-es'
+import { PersistStore } from '@/types/storage'
+import { assign, isObject, } from 'lodash-es'
 import { proxy, useSnapshot, subscribe } from 'valtio'
 
 import { storePersist } from './store-persist'
+export type _Method = (...args: any[]) => any
 
+type Actions = { [key: string]: _Method }
 interface storeParams<T> {
   state: T
-  actions: _ActionsTree
+  actions?: Actions
   persist?: PersistStore
 }
 
-const generateActions = (state, actions) => {
-  const result = {}
+function generateActions<T>(state: T, actions: Actions) {
+  const result: any = {}
 
-  Object.keys(actions).forEach(key => {
-    result[key] = (...args: any) => {
-      return actions[key](...args, state)
+  Object.keys(actions).forEach((key: string) => {
+    result[key] = (...args: any[]) => {
+      return (actions[key] as any)(...args, state)
     }
   })
 
@@ -23,7 +25,7 @@ const generateActions = (state, actions) => {
 }
 
 
-const generatePersist = (state, persist) => {
+function generatePersist<T extends object>(state: T, persist: PersistStore): void {
   storePersist(state, persist)
   // 订阅状态变化
   // todo 局部更新存储数据
@@ -33,7 +35,7 @@ const generatePersist = (state, persist) => {
   )
 }
 
-function generateStore<T>({ state, actions, persist = null }: storeParams<T>) {
+function generateStore<T extends object>({ state, actions, persist = null }: storeParams<T>) {
   if (!isObject(state)) {
     throw new Error('state object required')
   }
@@ -42,18 +44,18 @@ function generateStore<T>({ state, actions, persist = null }: storeParams<T>) {
     throw new Error('actions object required')
   }
 
-  let _actions
+  let _actions: any
 
-  const result = proxy({ ...(state as object) })
+  const result: T = proxy({ ...(state as object) }) as T
 
   // 处理函数
   if (actions) {
-    _actions = generateActions(result, actions)
+    _actions = generateActions<T>(result, actions)
   }
 
   // 处理缓存
   if (persist) {
-    generatePersist(result, persist)
+    generatePersist<T>(result, persist)
   }
 
   return () => {

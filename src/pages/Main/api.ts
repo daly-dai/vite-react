@@ -13,5 +13,5 @@ export interface TestResData {
 
 
 export const getTest: any = (params: TestParams) => {
-  return get<TestResData>('/api/community/getCommunity', params)
+  return get('/api/community/getCommunity', params)
 }

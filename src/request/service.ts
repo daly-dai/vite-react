@@ -4,11 +4,11 @@ import axios from 'axios'
 
 // import errorCode from '@/utils/errorCode'
 
-axios.defaults.headers['Content-Type'] = 'application/json;charset=utf-8'
+(axios.defaults.headers as any)['Content-Type'] = 'application/json;charset=utf-8'
 
 // 创建axios实例
 
-const errorCode: { [key: number]: string } = {
+const errorCode: { [key: number | string]: string } = {
   400: '错误的请求',
   401: '未授权，请重新登录',
   403: '拒绝访问',
@@ -21,6 +21,7 @@ const errorCode: { [key: number]: string } = {
   503: '服务不可用',
   504: '网络超时',
   505: 'http版本不支持该请求',
+  "default": '网络异常'
 }
 
 const service = axios.create({

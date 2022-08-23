@@ -1,7 +1,5 @@
-import { onRouteBeforeRule } from '@/types/router'
-
-const onRouteBefore: onRouteBeforeRule = (meta, to) => {
-  const { auth, title } = meta
+const onRouteBefore = (meta: { auth: any; title: any }, to: any) => {
+  const { title } = meta
   if (title) {
     // 动态修改页面title
     document.title = title || '统一中心管理'

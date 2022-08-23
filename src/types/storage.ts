@@ -6,10 +6,14 @@ export type _ActionsTree = Record<string, _Method>
 
 export type PersistStore = Persist | Persist[] | null
 
-interface Persist {
+export interface Persist {
   key: string;
   storage?: Storage;
   paths?: string[];
   isAll?: false
   isDefault?: boolean;
+}
+
+export interface StrObj {
+  [key: string]: any
 }

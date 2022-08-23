@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios"
 
-type RequestFn = (
+export type RequestFn = (
   url: string,
   params: any,
   action?: any,
@@ -9,7 +9,7 @@ type RequestFn = (
 
 ) => any
 
-interface RequestConfig {
+export interface RequestConfig {
   url: string
   params: any
   method?: string
@@ -18,6 +18,5 @@ interface RequestConfig {
   config?: AxiosRequestConfig
 }
 
-type RequestFunc = (arg0: RequestConfig) => any
+export type RequestFunc = (arg0: RequestConfig) => any
 
-export { RequestFn, RequestConfig, RequestFunc }

@@ -1,5 +1,5 @@
 import { isArray, get, set } from 'lodash-es';
-import { Persist, PersistStore } from "@/types/storage";
+import { Persist, PersistStore, StrObj } from "@/types/storage";
 
 interface Params {
   key: string;
@@ -8,7 +8,9 @@ interface Params {
   value: any
 }
 
-function storePersist<T>(state: T, persist: PersistStore): void {
+function storePersist<T extends object>(state: T, persist: PersistStore): void {
+  if (!persist) return
+
   const persistArr = isArray(persist) ? persist : [persist]
 
   persistArr.forEach((persistItem: Persist) => {
@@ -29,7 +31,7 @@ function storePersist<T>(state: T, persist: PersistStore): void {
     }
 
     if (paths?.length) {
-      const _stateStash = paths.reduce((finalObj, key) => {
+      const _stateStash = paths.reduce((finalObj: StrObj, key) => {
         finalObj[key] = get(state, key, null)
 
         return finalObj
@@ -50,7 +52,7 @@ function updateStoreDataByKey({ key, path, storage, value = null }: Params): voi
   updateStoreData(key, storage, value)
 }
 
-function updateStoreData(key, storage, value) {
+function updateStoreData(key: string, storage: Storage, value: any) {
   storage.setItem(key, JSON.stringify(value))
 }
 

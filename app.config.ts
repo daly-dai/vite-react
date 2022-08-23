@@ -16,6 +16,6 @@ const alias = {
   '@plugins': resolve('src/plugins')
 }
 
-const headers = []
+const headers: string[] = []
 
 export { headers, alias }
