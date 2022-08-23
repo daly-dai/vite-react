@@ -6,7 +6,7 @@ const onRouteBefore: onRouteBeforeRule = (meta, to) => {
     // 动态修改页面title
     document.title = title || '统一中心管理'
   }
-  console.log('to', to)
+
   return to
   // token权限验证
   // return (auth && !localStorage('access_token')) ? '/login' : to;
