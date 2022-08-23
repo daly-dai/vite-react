@@ -1,20 +1,15 @@
-import {
-  FunctionRule,
-  GuardRule,
-  onRouteBeforeRule,
-  RouteObject
-} from '@/types/router'
+import { FunctionRule, GuardRule, RouteObject } from '@/types/router'
 import { operationAttrToNodes } from '@/utils/tree'
 import { cloneDeep } from 'lodash-es'
 import React, { lazy, Suspense } from 'react'
 import { Navigate, useLocation } from 'react-router'
 import { useRoutes } from 'react-router-dom'
 
-let onRouterBefore: onRouteBeforeRule
+let onRouterBefore: any
 let RouterLoading: FunctionRule
 
 //路由导航，设置redirect重定向 和 auth权限
-function Guard({ element, meta }) {
+function Guard({ element, meta }: { element: any; meta: any }) {
   const { pathname } = useLocation()
   const nextPath = onRouterBefore ? onRouterBefore(meta, pathname) : pathname
 
@@ -26,7 +21,7 @@ function Guard({ element, meta }) {
 }
 
 // 路由懒加载
-function lazyLoadRouters(element, meta = {}) {
+function lazyLoadRouters(element: any, meta = {}) {
   const LazyElement = lazy(element)
 
   const GetElement = () => {

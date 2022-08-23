@@ -3,7 +3,7 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
@@ -56,7 +56,7 @@
         ]
     },
   },
-  "include": ["src/*", "src/**/*.ts","src/**/*.js","src/**/*.d.ts","src/**/*.jsx", "src/**/*.tsx"],
+  "include": ["src/**/*", "./vite.config.ts", "./app.config.ts"],
   "references": [{ "path": "./tsconfig.node.json" }],
-  "exclude": ["node_modules", "dist", "config", "scripts"]
+  "exclude": ["node_modules", "dist","scripts"]
 }

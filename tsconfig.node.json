@@ -26,9 +26,8 @@
   },
   "include": [
     "vite.config.ts",
-    "src/**/*.ts",
-    "app.config.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
+    // "src/**/*",
+    // "app.config.ts",
+    // "config/**/*",
   ]
 }

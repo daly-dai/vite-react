@@ -1,14 +1,13 @@
 import { RouteObject } from '@/types/router'
 import { arrayToTree } from '@utils/tree'
 import { concat } from 'lodash-es'
-import lazyLoad from '@/hooks/lazyLoad'
 
 const staticPath = '/src/service/router/'
 
 function rootRouteData(modules: any): RouteObject[] {
   const root = (modules[`${staticPath}root.ts`] as any).default
 
-  root.forEach(item => {
+  root.forEach((item: RouteObject) => {
     item['parentId'] = ''
     // item.element = lazyLoad(item.element)
   })
@@ -33,7 +32,7 @@ function generatePathConfig(): RouteObject[] {
     const nameList = routePath.split('/')
     const parentId = nameList[nameList?.length - 2]
 
-    routerData.forEach(item => {
+    routerData.forEach((item: RouteObject) => {
       item['parentId'] = parentId
       // item.element = lazyLoad(item.element)
     })
