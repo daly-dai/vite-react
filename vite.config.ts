@@ -3,16 +3,14 @@ import react from '@vitejs/plugin-react'
 import vitePluginImp from 'vite-plugin-imp'
 import { alias } from './app.config'
 import eslint from 'vite-plugin-eslint'
-import { resolve } from "path";
+import svgr from 'vite-plugin-svgr'
 
-// https://vitejs.dev/config/
+import proxy from './config/proxy-self'
+
 export default defineConfig({
   css: {
     preprocessorOptions: {
       less: {
-        // modifyVars: {
-        //   hack: `true; @import (reference) "${path.resolve("src/assets/css/base.less")}";`,
-        // },
         javascriptEnabled: true,
       },
     },
@@ -40,10 +38,13 @@ export default defineConfig({
     eslint({
       include: ['src/**/*.js', 'src/**/*.jsx', 'src/*.ts', 'src/*.tsx']
     }),
+    svgr()
   ],
   publicDir: 'assets',
   server: {
-    host: true
+    host: true,
+    cors: true, // 允许跨域
+    proxy: proxy,
   },
   base: "./", // 设置打包路径
   resolve: {

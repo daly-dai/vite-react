@@ -29,6 +29,6 @@
     "src/**/*.ts",
     "app.config.ts",
     "src/**/*.d.ts",
-    "src/**/*.tsx"
+    "src/**/*.tsx",
   ]
 }
