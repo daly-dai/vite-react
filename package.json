@@ -4,9 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "start": "npm run createProxySelf && vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
+    "test": "vitest",
+    "createProxySelf": "esno ./scripts/create-proxy.ts",
+    "coverage": "vitest run --coverage",
     "prepare": "husky install",
     "eslint": "eslint --ext .js,.jsx,.tsx,.ts src",
     "lint": "lint-staged"
