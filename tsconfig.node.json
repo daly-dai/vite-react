@@ -26,8 +26,9 @@
   },
   "include": [
     "vite.config.ts",
+    "config/proxy-self.ts",
     // "src/**/*",
-    // "app.config.ts",
+    "app.config.ts",
     // "config/**/*",
   ]
 }

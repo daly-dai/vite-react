@@ -54,5 +54,27 @@ export default defineConfig({
   resolve: {
     alias,
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']
+  },
+  esbuild: {
+    jsxInject: `import React from 'react'`
+  },
+  build: {
+    terserOptions: {
+      compress: {
+        // 清除console。log
+        drop_console: true,
+        // 清除debugger
+        drop_debugger: true,
+      },
+    },
+    assetsInlineLimit: 2000,
+    reportCompressedSize: false, // 启用/禁用 gzip 压缩大小报告。
+    rollupOptions: {
+      output: {
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]',
+      }
+    }
   }
 })
